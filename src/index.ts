@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Express } from "express";
 import 'dotenv/config';
 import cors from "cors";
 import morgan from "morgan";
@@ -6,7 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import './database/database.js'
 
-const app = express()
+const app: Express = express()
 
 app.set('port', process.env.PORT || 4000)
 app.listen(app.get('port'), () => {
