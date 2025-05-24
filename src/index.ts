@@ -4,6 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
+import userRouter from "./routes/user.routes.js";
 import './database/database.js'
 
 const app: Express = express()
@@ -20,3 +21,4 @@ app.use(express.urlencoded({ extended: true }))
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
+app.use('/api', userRouter)
