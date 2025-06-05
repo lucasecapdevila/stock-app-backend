@@ -6,6 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import userRouter from "./routes/user.routes.js";
 import './database/database.js'
+import productsRouter from "./routes/product.routes.js";
 
 const app: Express = express()
 
@@ -21,4 +22,4 @@ app.use(express.urlencoded({ extended: true }))
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-app.use('/api', userRouter)
+app.use('/api', userRouter, productsRouter)
