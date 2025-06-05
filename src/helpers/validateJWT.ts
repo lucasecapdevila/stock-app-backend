@@ -18,7 +18,7 @@ const validateJWT = (req: Request, res: Response, next: NextFunction) => {
   }
   
   try {
-    const payload = jwt.verify(token, process.env.SECRET_KEY as string) as JwtPayload;
+    const payload = jwt.verify(token, process.env.SECRET_JWT as string) as JwtPayload;
     req.username = payload.username;
     next();
   } catch (error: any) {

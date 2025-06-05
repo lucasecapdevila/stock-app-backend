@@ -2,9 +2,9 @@ import jwt from 'jsonwebtoken';
 import "dotenv/config"
 import { JwtPayload } from '../types/helpers.js';
 
-const generateJWT = async (userName: string): Promise<string> => {
+const generateJWT = async (username: string): Promise<string> => {
   try {
-    const payload: JwtPayload = { userName };
+    const payload: JwtPayload = { username };
     const secretKey = process.env.SECRET_JWT;
     
     if (!secretKey) {
