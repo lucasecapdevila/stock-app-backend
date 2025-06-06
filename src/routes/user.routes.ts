@@ -3,11 +3,11 @@ import { createUser, getUserById, readUsers, login, updateUser, deleteUser } fro
 import validateUser from "../helpers/validateUser.js";
 import validateJWT from "../helpers/validateJWT.js";
 
-const router = Router();
+const userRouter = Router();
 
-router.route('/users/register').post(validateUser as RequestHandler[], createUser as RequestHandler);
-router.route('/users').get(readUsers as RequestHandler);
-router.route('/users/:id').get(getUserById as RequestHandler).put([validateJWT, validateUser] as RequestHandler[], updateUser as RequestHandler).delete(deleteUser as RequestHandler);
-router.route('/').post(login as RequestHandler);
+userRouter.route('/users/register').post(validateUser as RequestHandler[], createUser as RequestHandler);
+userRouter.route('/users').get(readUsers as RequestHandler);
+userRouter.route('/users/:id').get(getUserById as RequestHandler).put([validateJWT, validateUser] as RequestHandler[], updateUser as RequestHandler).delete(deleteUser as RequestHandler);
+userRouter.route('/').post(login as RequestHandler);
 
-export default router;
+export default userRouter;
