@@ -21,13 +21,13 @@ const validateProduct = [
     .withMessage("El stock es un dato obligatorio")
     .isInt({ min: 0 })
     .withMessage("El stock debe ser un número entero mayor o igual a 0"),
-  (validator as any).check("level")
+  (validator as any).check("type")
     .notEmpty()
-    .withMessage("El nivel es un dato obligatorio")
+    .withMessage("El tipo es un dato obligatorio")
     .isString()
-    .withMessage("El nivel debe ser un string")
+    .withMessage("El tipo debe ser un string")
     .isIn(["Económico", "Intermedio", "Premium"])
-    .withMessage("El nivel debe ser 'Económico', 'Intermedio' o 'Premium'"),
+    .withMessage("El tipo debe ser 'Económico', 'Intermedio' o 'Premium'"),
   (validator as any).check("description")
     .optional()
     .isString()

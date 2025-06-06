@@ -24,8 +24,8 @@ export const getProductById = async (req: Request, res: Response) => {
 
 export const createProduct = async (req: Request, res: Response) => {
   try {
-    const { name, price, stock, level, description } = req.body;
-    const product = new Product({ name, price, stock, level, description });
+    const { name, price, stock, type, description } = req.body;
+    const product = new Product({ name, price, stock, type, description });
     await product.save();
     res.status(201).json(product);
   } catch (error) {
@@ -36,7 +36,7 @@ export const createProduct = async (req: Request, res: Response) => {
 export const updateProduct = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const { name, price, stock, level, description } = req.body;
+    const { name, price, stock, type, description } = req.body;
 
     const product = await Product.findById(id);
     if (!product) {
@@ -45,7 +45,7 @@ export const updateProduct = async (req: Request, res: Response) => {
 
     const updatedProduct = await Product.findByIdAndUpdate(
       id,
-      { name, price, stock, level, description },
+      { name, price, stock, type, description },
       { new: true }
     );
     res.status(200).json({ message: "Producto actualizado exitosamente", product: updatedProduct });

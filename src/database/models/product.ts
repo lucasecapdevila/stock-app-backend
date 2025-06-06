@@ -19,7 +19,7 @@ const productSchema = new Schema({
     required: true,
     min: 0,
   },
-  level: {
+  type: {
     type: String,
     enum: ["Económico", "Intermedio", "Premium"],
     required: true,
