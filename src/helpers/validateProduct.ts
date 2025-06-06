@@ -19,8 +19,8 @@ const validateProduct = [
   (validator as any).check("stock")
     .notEmpty()
     .withMessage("El stock es un dato obligatorio")
-    .isInt({ min: 1 })
-    .withMessage("El stock debe ser un número entero mayor a 0"),
+    .isInt({ min: 0 })
+    .withMessage("El stock debe ser un número entero mayor o igual a 0"),
   (validator as any).check("level")
     .notEmpty()
     .withMessage("El nivel es un dato obligatorio")
@@ -34,6 +34,7 @@ const validateProduct = [
     .withMessage("La descripción debe ser un string")
     .isLength({ min: 10, max: 1000 })
     .withMessage("La descripción debe tener entre 10 y 1000 carácteres"),
+  validationResult
 ]
 
 export default validateProduct;

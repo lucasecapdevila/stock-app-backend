@@ -61,8 +61,8 @@ export const deleteProduct = async (req: Request, res: Response) => {
       return res.status(404).json({ message: "Producto no encontrado" });
     }
     await Product.findByIdAndDelete(req.params.id);
-    res.status(200).json({ message: "Usuario eliminado exitosamente" });
+    res.status(200).json({ message: "Producto eliminado exitosamente" });
   } catch (error) {
-    res.status(500).json({ message: "Error al eliminar el usuario" });
+    res.status(500).json({ message: "Error al eliminar el producto" });
   }
 };
