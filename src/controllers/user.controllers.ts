@@ -66,9 +66,14 @@ export const login = async (req: Request, res: Response) => {
     }
 
     // Generate token
-    const token = await generateJWT(user.username);
+    const { accessToken, refreshToken } = await generateJWT(user.username);
 
-    res.status(200).json({ message: "Inicio de sesión exitoso", username: user.username, token });
+    res.status(200).json({ 
+      message: "Inicio de sesión exitoso", 
+      username: user.username, 
+      accessToken,
+      refreshToken 
+    });
   } catch (error) {
     res.status(500).json({ message: "Error al iniciar sesión" });
   }
